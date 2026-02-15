@@ -1,0 +1,112 @@
+ @extends('admin/main')
+@section('main-section')
+
+
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Add Seller</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Add Seller</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+    
+    
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- jquery validation -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Add Seller </h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+               <form action="{{url('/')}}/admin/ActiveSellers" method="POST" enctype="multipart/form-data">
+                   @csrf
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Seller Name</label>
+                    <input type="text" name="name" class="form-control" id="exampleInputEmail1" value="{{$Sellers->Contact}}" placeholder="Enter Seller Name">
+                  </div>
+                 <div class="row">
+                      <div class="form-group col-md-6">
+                    <label for="exampleInputEmail1">Seller Email</label>
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" value="{{$Sellers->Email}}" placeholder="Enter Seller Email">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="exampleInputEmail1">Seller Phone</label>
+                    <input type="text" name="phone"  class="form-control" id="exampleInputEmail1" value="{{$Sellers->Mobile}}" placeholder="Enter Seller Phone">
+                  </div>
+                 </div>
+                 <input type="hidden" name="seller_id" value="{{$Sellers->id}}" >
+                 <input type="hidden" name="role" value="seller" >
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  </div>
+                  <!--<div class="form-group">-->
+                  <!--  <label for="exampleInputPassword1">Confirm Password</label>-->
+                  <!--  <input type="password" name="password_confirmation" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password">-->
+                  <!--</div>-->
+                
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+            </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+          <div class="col-md-6">
+
+          </div>
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    
+    
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            
+            
+@if ($errors->any())
+                        <ul class="alert alert-warning">
+                            @foreach ($errors->all() as $error)
+                            <li> {{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+
+    @endsection
