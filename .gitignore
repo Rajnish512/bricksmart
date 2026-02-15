@@ -1,0 +1,58 @@
+# Laravel core
+/vendor/
+/node_modules/
+/public/storage
+/storage/*.key
+
+# Environment files (IMPORTANT - never upload these)
+.env
+.env.local
+.env.production
+
+# Laravel cache files
+/bootstrap/cache/*.php
+/storage/logs/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+
+# Composer
+composer.lock
+
+# NPM
+package-lock.json
+npm-debug.log
+yarn-error.log
+
+# Build files
+/public/build
+/public/hot
+/public/mix-manifest.json
+
+# IDE files
+/.vscode/
+/.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Testing
+/phpunit.result.cache
+
+# Optional: Ignore uploaded files
+/public/uploads/*
+!/public/uploads/.gitignore
+
+# Optional: Ignore backup files
+*.zip
+*.tar
+*.gz
+*.rar
+
+# Optional: Ignore logs
+*.log
